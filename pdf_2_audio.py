@@ -1,8 +1,13 @@
-import os
 import PyPDF2
 from gtts import gTTS
 from tqdm import trange
 from time import sleep
+from tkinter import Tk
+from tkinter.filedialog import askopenfilename
+
+
+Tk().withdraw()
+filelocation = askopenfilename()
 
 # Progress of conversion
 def progress():
@@ -10,7 +15,7 @@ def progress():
         sleep(.5)
             
 # Open the PDF file 
-with open('document.pdf', 'rb') as file:
+with open(filelocation, 'rb') as file:
     # Create a PDF object
     reader = PyPDF2.PdfFileReader(file)
 
